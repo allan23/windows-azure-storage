@@ -411,7 +411,7 @@ function windows_azure_storage_wp_update_attachment_metadata( $data, $post_id ) 
 			$result = \Windows_Azure_Helper::put_media_to_blob_storage(
 				$default_azure_storage_account_container_name,
 				$relative_file_name,
-				$relative_file_name,
+				$upload_file_name,
 				$mime_type
 			);
 
