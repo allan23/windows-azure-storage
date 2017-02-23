@@ -528,13 +528,9 @@ function windows_azure_storage_wp_handle_upload_prefilter( $file ) {
  * @return array Updated metadata.
  */
 function windows_azure_storage_wp_handle_upload( $uploads ) {
-	$wp_upload_dir  = wp_upload_dir();
-	$uploads['url'] = sprintf( '%1$s/%2$s/%3$s',
-		untrailingslashit( WindowsAzureStorageUtil::get_storage_url_base() ),
-		ltrim( $wp_upload_dir['subdir'], '/' ),
-		basename( $uploads['file'] )
-	);
 
+	$wp_upload_dir = wp_upload_dir();
+	$uploads['url'] = get_updated_upload_url($uploads['url']);
 	return $uploads;
 }
 
